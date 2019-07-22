@@ -1,0 +1,258 @@
+ /* All the code for the split page functionality */
+ 
+ :root {
+     --container-bg-color: rgba(82, 104, 151, 0);
+     --left-bg-color: rgba(82, 104, 151, 0.726);
+     --left-button-hover-color: rgba(255, 212, 79, 0.3);
+     --right-bg-color: rgba(255, 212, 79, 0.8);
+     --right-button-hover-color: rgba( 82, 104, 151, 0.3);
+     --hover-width: 75%;
+     --other-width: 25%;
+     --speed: 1000ms;
+ }
+ 
+ html,
+ body {
+     padding: 0;
+     margin: 0;
+     font-family: 'Montserrat', sans-serif;
+     width: 100%;
+     height: 100%;
+     overflow-x: hidden;
+ }
+ 
+ h1 {
+     font-size: 4rem;
+     color: #fff;
+     position: absolute;
+     left: 50%;
+     top: 10%;
+     transform: translateX(-50%);
+     white-space: nowrap;
+ }
+ 
+ h2 {
+     color: rgb(82, 104, 151);
+     font-size: 60px;
+     margin-top: 10px;
+ }
+ 
+ .button {
+     display: block;
+     position: absolute;
+     left: 50%;
+     top: 80%;
+     height: 2.5rem;
+     padding-top: 1.3rem;
+     width: 15rem;
+     text-align: center;
+     color: #fff;
+     border: #fff solid 2px;
+     border-radius: 40px;
+     font-size: 1rem;
+     font-weight: 300;
+     /* text-transform: uppercase; */
+     text-decoration: none;
+     transform: translateX(-50%);
+ }
+ 
+ .split.left .button:hover {
+     background-color: var(--left-button-hover-color);
+     border-color: var(--left-button-hover-color);
+ }
+ 
+ .split.right .button:hover {
+     background-color: var(--right-button-hover-color);
+     border-color: var(--right-button-hover-color);
+ }
+ 
+ .container {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     background: var(--container-bg-color);
+ }
+ 
+ .split {
+     position: absolute;
+     width: 50%;
+     height: 100%;
+     overflow: hidden;
+ }
+ 
+ .split.left {
+     left: 0;
+     background: url('../img/dog.jpg') center center no-repeat;
+     background-size: cover;
+ }
+ 
+ .split.left:before {
+     position: absolute;
+     content: "";
+     width: 100%;
+     height: 100%;
+     background: var(--left-bg-color);
+ }
+ 
+ .split.right {
+     right: 0;
+     background: url('../img/owner.jpg') center center no-repeat;
+     background-size: cover;
+ }
+ 
+ .split.right:before {
+     position: absolute;
+     content: "";
+     width: 100%;
+     height: 100%;
+     background: var(--right-bg-color);
+ }
+ 
+ .split.left,
+ .split.right,
+ .split.right:before,
+ .split.left:before {
+     transition: var(--speed) all ease-in-out;
+ }
+ 
+ .hover-left .left {
+     width: var(--hover-width);
+ }
+ 
+ .hover-left .right {
+     width: var(--other-width);
+ }
+ 
+ .hover-left .right:before {
+     z-index: 2;
+ }
+ 
+ .hover-right .right {
+     width: var(--hover-width);
+ }
+ 
+ .hover-right .left {
+     width: var(--other-width);
+ }
+ 
+ .hover-right .left:before {
+     z-index: 2;
+ }
+ 
+ @media(max-width: 800px) {
+     h1 {
+         font-size: 2rem;
+     }
+     .button {
+         width: 12rem;
+     }
+ }
+ 
+ @media(max-height: 700px) {
+     .button {
+         top: 70%;
+     }
+ }
+ /* CSS for the site */
+ 
+ .enchilada {
+     width: 90%;
+     margin: auto;
+ }
+ /* navigation */
+ 
+ ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     background-color: rgb(82, 104, 151);
+     /* transform: rotate(180deg); */
+ }
+ /*  
+ ul>li {
+     transform: rotate(-180deg);
+ } */
+ 
+ a {
+     color: rgb(82, 104, 151);
+ }
+ 
+ li {
+     float: left;
+ }
+ 
+ li a {
+     display: block;
+     color: white;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+ }
+ 
+ li a:hover {
+     background-color: rgb(255, 212, 79);
+     color: rgb(82, 104, 151);
+     text-decoration: none;
+ }
+ /* main area of the pages */
+ 
+ header.bg-primary.py-5.mb-5 {
+     height: 190px;
+ }
+ 
+ .bg-primary {
+     background-color: rgb(255, 212, 79)!important;
+     /* height: 150!important; */
+ }
+ 
+ h1.splash {
+     margin-top: 10px!important;
+ }
+ 
+ .btn-primary {
+     color: #fff;
+     background-color: rgb(255, 212, 79);
+     /* border: 5px solid rgb(82, 104, 151); */
+ }
+ 
+ .btn-primary:hover {
+     background-color: rgb(82, 104, 151);
+ }
+ 
+ abbr[data-original-title],
+ abbr[title] {
+     text-decoration: none;
+ }
+ /* asides and sidebars */
+ 
+ #humanSidebar {
+     background-color: rgb(255, 212, 79);
+     color: rgb(82, 104, 151);
+ }
+ 
+ #dogSidebar {
+     background-color: rgb(255, 212, 79);
+     color: rgb(82, 104, 151);
+ }
+ /* Map Page */
+ 
+ .mapContainer {
+     margin-bottom: 50px;
+ }
+ 
+ #content h1 {
+     color: black;
+     font-size: 1rem;
+ }
+ /* Footer */
+ 
+ #footerGlobal {
+     background-color: rgb(82, 104, 151)!important;
+     width: 100%;
+ }
+ 
+ #footerLogo {
+     float: left;
+     margin-left: 150px;
+ }
